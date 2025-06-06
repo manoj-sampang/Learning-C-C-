@@ -61,7 +61,7 @@ int main() {
     p1.display();
     p2.display();
 
-    swapObjects(&p1, &p2); // 👈 pass pointer to objects
+    swapObjects(&p1, &p2); //pass pointer to objects
 
     cout << "\n------ After Swapping ------" << endl;
     p1.display();
