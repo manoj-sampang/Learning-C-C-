@@ -25,10 +25,10 @@ int Truth_Table::calculate_output(int a, int b, int choice) {
         case 5: // Bi-implication
             if(a==b)
             {
-                return 0;
+                return 1;
             }
             else {
-                return 1;
+                return 0;
             }
         default:
             return -1; // Invalid
