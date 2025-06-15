@@ -10,7 +10,7 @@ class truth_table{
             return !x || y;
         }
         void table_sample() {
-            cout << "p\tq\tp->q\tpv(p->q)\t(pv(p->q))->q" << endl;
+            cout << "p\tq\tp->q\tp^(p->q)\t(p^(p->q))->q" << endl;
             for(int i = 0; i <= 1; ++i) {
                 for(int j = 0; j <= 1; ++j) {
                     cout << i << "\t" << j << "\t " << implication(i,j) << "\t    " << conjunction(i,implication(i,j)) << "\t\t     "
