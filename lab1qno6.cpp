@@ -3,15 +3,15 @@ function overloading.*/
 #include<iostream>
 #define PI 3.1415
 using namespace std;
-void volume(float l,float b)
+inline evoid volume(float l,float b)
 {
     cout<<"Volume of Cube is = "<<l*b<<endl;
 }
-void volume(float l, float b, float h)
+inline void volume(float l, float b, float h)
 {
     cout<<"Volume of Cubiod is = "<<l*b*h<<endl;
 }
-void volume(float r)
+inline void volume(float r)
 {
     cout<<"Volume of Cylinder is = "<<4/3*PI*r*r*r<<endl;
 }
