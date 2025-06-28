@@ -21,7 +21,7 @@ class Rectangle {
             cin >> y_dim;
         }
         void display() {
-            cout << x_dim <<"x" << y_dim <<"in cm" << endl;
+            cout << x_dim <<"x " << y_dim <<"y in cm" << endl;
         }
 };
 int main() {
@@ -35,6 +35,7 @@ int main() {
     }
     cout << "Displaying the dimensions" << endl;
     for(int i = 0; i < num; i++) {
+        cout <<"Rectangle: " << i+1 << endl;
         dma[i].display();
     }
     delete[] dma;
