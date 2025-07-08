@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
-class Library {
+class LibraryManagement {
     int year;
     string title,author,id;
     public:
         Library() {
-            Year = nullptr;
+            Year = 0;
             title = nullptr;
             author = nullptr;
             id = nullptr;
@@ -17,6 +17,20 @@ class Library {
 
         }
             
+};
+
+class Login {
+    string username;
+    string password;
+    public:
+        Login() {
+            username = 'no username';
+            password = 'no password';
+        }
+        void input() {
+
+        }
+        
 };
 int main() {
     
