@@ -10,60 +10,48 @@ and member function overriding during compilation and execution.*/
 #include<iostream>
 using namespace std;
 
-class Staff;
-class Faculty;
 class Person {
-    int age;
+protected:
     string name;
-    public:
+    int age;
+public:
+    Person(string n, int a) {
+        name = n;
+        age = a;
+    }
     void displayInfo() {
         cout << "Name: " << name << "\tAge: " << age << endl;
     }
-    string& get_Name() {
-        return name;
-    }
-    int& get_Age() {
-        return age;
-    }
 };
 
-class Faculty:protected Person {
+class Faculty : public Person {
     string department;
-    public:
+public:
+    Faculty(string n, int a, string d) : Person(n, a), department(d) {}
+
+    //Override displayInfo
     void displayInfo() {
-        Person::displayInfo();
-        cout << "Department: " << department << endl;
-    }
-    void input() {
-        cout << "Enter the asked info" << endl;
-        cout << "Name: ";
-        getline(cin,get_Name());
-        cout << "Age: ";
-        cin >> get_Age();
-        getline(cin, department);
-        cin >> department;
-        Staff::input();
+        cout << "Name: " << name << "\tAge: " << age << "\tDepartment: " << department << endl;
     }
 };
 
-class Staff:protected Person{
+class Staff : public Person {
     string position;
-    public:
+public:
+    Staff(string n, int a, string p) : Person(n, a), position(p) {}
+
+    //Override displayInfo
     void displayInfo() {
-        Person::displayInfo();
-        cout << "Position: " << position << endl;
-    }
-    void input() {
-        cout << "Position: ";
-        getline(cin, position);
+        cout << "Name: " << name << "\tAge: " << age << "\tPosition: " << position << endl;
     }
 };
 
 int main() {
-    Faculty f;
-    Staff s;
-    f.input();
+    Faculty f("Hari", 40, "Computer Science");
+    Staff s("Ram", 35, "Bsc. Csit");
+
     f.displayInfo();
     s.displayInfo();
+
     return 0;
 }

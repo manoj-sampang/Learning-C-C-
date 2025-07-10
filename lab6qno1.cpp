@@ -14,8 +14,13 @@ class Height {
         inch = feet = 0;
     }
     Height(int i) {
+        if (inch >= 12) {
         feet = i/12;
         inch = i%12;
+        }
+        else {
+            inch = i;
+        }
     }
     void display() {
         cout << "Ans: " << feet << "feet " << inch <<"inch."<<endl;
