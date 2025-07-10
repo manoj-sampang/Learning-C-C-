@@ -20,9 +20,12 @@ class PositiveInteger {
         else {
             n = num;
         }
-    } 
+    }
     friend PositiveInteger operator-(const PositiveInteger &p);
     void display();
+    int& access_n() {
+        return n;
+    }
     
 };
 
@@ -36,11 +39,9 @@ PositiveInteger operator-(const PositiveInteger &p) {
 }
 
 int main() {
-    
-    int num;
-    cout << "Enter any humber you want to negate" << endl;
-    cin >> num;
-    PositiveInteger p1(num);
+    PositiveInteger p1;
+    cout << "Enter any number you want to negate" << endl;
+    cin >> p1.access_n();
     cout << "Before Negating" << endl;
     p1.display();
     cout << "After Negating" << endl;
