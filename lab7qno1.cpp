@@ -48,7 +48,7 @@ public:
 
 int main() {
     Faculty f("Hari", 40, "Computer Science");
-    Staff s("Ram", 35, "Bsc. Csit");
+    Staff s("Ram", 35, "Hotel Management");
 
     f.displayInfo();
     s.displayInfo();
