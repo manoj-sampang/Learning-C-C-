@@ -21,7 +21,8 @@ class LibraryManagement {
 
 class Register {
     string username, password;
-    void 
+    public:
+        
 };
 
 class Login {
