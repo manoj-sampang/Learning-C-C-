@@ -1,5 +1,20 @@
 #include<iostream>
 using namespace std;
+
+
+class Identity {
+    string name, date, book_info;
+    public:
+        void input() {
+            cout << "Name: ";
+            getline(cin, name);
+        }
+
+
+ 
+
+
+};
 class LibraryManagement {
     string year;
     string title,author,id;
@@ -19,6 +34,10 @@ class LibraryManagement {
             
 };
 
+class Home {
+    string 
+};
+
 class Register {
     string username, password;
     public:
@@ -33,11 +52,11 @@ class Login {
             password = "no password";
         }
         void input() {
-            cout << "Permission Accessed"z << endl;
+            cout << "Permission Accessed" << endl;
             cout << "username: ";
             getline(cin, username);
             cout << "password: ";
-            getline(cin, password);
+            if(getline(cin, password));
         }
     protected:
         void validity() {
