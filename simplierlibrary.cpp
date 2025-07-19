@@ -179,7 +179,7 @@ private:
     string book_id;
     string title;
     string author;
-    string isbn;
+    string isbn; //international standard book number
     string category;
     int publication_year;
     int total_copies;
