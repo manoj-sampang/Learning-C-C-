@@ -1,0 +1,1 @@
+Book(const string& b, const string &c) : ball(b), cat(c) {};

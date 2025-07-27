@@ -1,3 +1,4 @@
 admin,admin123,admin,System Administrator
 librarian,lib123,librarian,Head Librarian
 raghaw,raghaw101,admin,Raghaw Panth
+manojrai,okayfine,member,Manoj Rai
