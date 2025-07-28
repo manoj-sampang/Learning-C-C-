@@ -32,32 +32,32 @@ void signal_handler(int signal) {
 }
 
 // Cross-platform utility function for password input
-char getch() {
-#ifdef _WIN32
+char getch() { 
+#ifdef _WIN32.  //global condition if it is windows
     return _getch();
-#else
+#else  // mac, linux 
     char buf = 0;
-    struct termios old = {};
-    if (tcgetattr(STDIN_FILENO, &old) < 0) {
+    struct termios old = {}; //using termios to format terminal/ console
+    if (tcgetattr(STDIN_FILENO, &old) < 0) { // get current attributes of the terminal and store it in old
         perror("tcgetattr");
         return 0;
     }
     
-    struct termios new_t = old;
-    new_t.c_lflag &= ~ICANON;
-    new_t.c_lflag &= ~ECHO;
+    struct termios new_t = old;  // put old terminal to new terminal so the old terminal doesn't get's swapped
+    new_t.c_lflag &= ~ICANON;  // this allows masking the character
+    new_t.c_lflag &= ~ECHO; // 
     
-    if (tcsetattr(STDIN_FILENO, TCSANOW, &new_t) < 0) {
+    if (tcsetattr(STDIN_FILENO, TCSANOW, &new_t) < 0) {  //setting attributes of current which is inside new_t to the terminal
         perror("tcsetattr");
         return 0;
     }
     
-    if (read(STDIN_FILENO, &buf, 1) < 0) {
+    if (read(STDIN_FILENO, &buf, 1) < 0) { // reading one character at a time
         perror("read");
         buf = 0;
     }
     
-    if (tcsetattr(STDIN_FILENO, TCSANOW, &old) < 0) {
+    if (tcsetattr(STDIN_FILENO, TCSANOW, &old) < 0) { //getting the terminal back after reading
         perror("tcsetattr");
     }
     
