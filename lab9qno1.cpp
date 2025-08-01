@@ -1,90 +1,43 @@
-/*Write a menu driven program to find the total no. of permutations, total no. of combinations and to generate 
-the permutations for the given input strings.*/
+/*Create a C++ class called Fraction that represents a fraction with private
+member variables numerator and denominator. Implement a non-member
+function called multiply() that takes two Fraction objects as parameters and
+returns the result of multiplying the fractions together as a new Fraction
+object. Make the multiply() function a friend of the Fraction class using
+the friend keyword. Demonstrate the usage of the multiply() function in a
+program.*/
 
 #include<iostream>
-#include<string>
-#include<algorithm> // for next_permutation
 using namespace std;
 
-class Permutations {
-protected:
-    int n, r;
-public:
-    void input() {
-        cout << "-- Permutations-Combinations Calculations --" << endl;
-        cout << "Enter total no. of objects to arrange from (n): ";
-        cin >> n;
-        cout << "Enter no. of arrangement at a time (r): ";
-        cin >> r;
-    }
-
-    int get_n() { return n; }
-    int get_r() { return r; }
-
-    int factorial(int num) {
-        int result = 1;
-        for (int i = 1; i <= num; ++i)
-            result *= i;
-        return result;
-    }
-
-    virtual void display() {
-        int perm = factorial(n) / factorial(n - r);
-        cout << "Permutations P(" << n << ", " << r << ") = " << perm << endl;
-    }
-
-    void generate_string_permutations() {
-        string str;
-        cout << "Enter a string to generate all permutations: ";
-        cin.ignore(); // clear buffer
-        getline(cin, str);
-
-        sort(str.begin(), str.end()); // sort first to start from lexicographical order
-        cout << "\nAll permutations of \"" << str << "\":" << endl;
-
-        do {
-            cout << str << endl;
-        } while (next_permutation(str.begin(), str.end()));
-    }
+class Fraction {
+    int nume, deno;
+    public:
+        void input() {
+            cout << "Enter the asked info" << endl;
+            cout << "--- Fraction Multiplication ---" << endl;
+            cout << "Numerator: ";
+            cin >> nume;
+            cout << "Denominator: ";
+            cin >> deno;
+        }
+        friend Fraction multiply(Fraction f1, Fraction f2);
+        void display() {
+            cout << "=== Multiplied Result ===" << endl;
+            cout << "Ans: " << nume << "/" << deno << endl;
+        }
 };
-
-class Combination : public Permutations {
-public:
-    void display() override {
-        Permutations::display();
-        int comb = factorial(n) / (factorial(r) * factorial(n - r));
-        cout << "Combinations C(" << n << ", " << r << ") = " << comb << endl;
-    }
-};
+Fraction multiply(Fraction f1, Fraction f2) {
+    Fraction temp;
+    temp.nume = f1.nume * f2.nume;
+    temp.deno = f1.deno * f2.deno;
+    return temp;
+}
 
 int main() {
-    Combination c;
-    int choice;
-
-    do {
-        cout << "\n--- Menu ---\n";
-        cout << "1. Find Permutations and Combinations\n";
-        cout << "2. Generate String Permutations\n";
-        cout << "3. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice) {
-        case 1:
-            c.input();
-            c.display();
-            break;
-        case 2:
-            c.generate_string_permutations();
-            break;
-        case 3:
-            cout << "Exiting program.\n";
-            break;
-        default:
-            cout << "Invalid choice. Try again.\n";
-        }
-
-    } while (choice != 3);
-
+    Fraction f1, f2, result;
+    f1.input();
+    f2.input();
+    result = multiply(f1, f2);
+    result.display();
     return 0;
 }
