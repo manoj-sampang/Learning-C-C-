@@ -33,7 +33,7 @@ void signal_handler(int signal) {
 
 // Cross-platform utility function for password input
 char getch() { 
-#ifdef _WIN32.  //global condition if it is windows
+#ifdef _WIN32  //global condition if it is windows
     return _getch();
 #else  // mac, linux 
     char buf = 0;
