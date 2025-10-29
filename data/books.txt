@@ -1,3 +1,5 @@
 BK1,The Notebook,Nicholas Sparks,0-446-52080-2,Romance,1996,1,0
 BK2,Bichitra,Ramu Das Barun,123 4 455 6 7778,horror,2021,2,2
 BK3,ttg,ghl,67897,romance,2013,3,3
+BK4,parijaat,parijat,536342,romance,2020,5,5
+BK5,one piece,ichigo oda,4234979,shonen,1998,4,4

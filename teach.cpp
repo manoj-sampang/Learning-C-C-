@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class BankAccount {
@@ -12,8 +13,8 @@ public:
         track++;
     }
 
-    static void show_account() {
-        cout << "No. of Accounts Created: " << track << endl;
+    static void show_account_count() {
+        cout << "Total Accounts Created: " << track << endl;
     }
 
     void display() {
@@ -37,7 +38,7 @@ public:
 
     void withdraw() {
         double amt;
-        cout << "Amount for Withdrawl = ";
+        cout << "Amount for Withdrawal = ";
         cin >> amt;
         if (amt <= balance) {
             balance -= amt;
@@ -58,10 +59,10 @@ public:
 
 // initialize static variable
 int BankAccount::track = 0;
-
+void BankAccount::show_account_count();
 int main() {
     int choose;
-    BankAccount B; // global object to hold the current account
+    vector<BankAccount> accounts;
 
     do {
         cout << "\n=== Choose instruction to perform ===" << endl;
@@ -78,24 +79,48 @@ int main() {
                 string name, account;
                 double bal;
                 cout << "Enter User Name: ";
-                cin.ignore(); // clear newline from previous input
+                cin.ignore(); // clear buffer
                 getline(cin, name);
                 cout << "Account Number: ";
                 getline(cin, account);
                 cout << "Initial Deposit: ";
                 cin >> bal;
-                B = BankAccount(account, name, bal); // constructor runs
+                accounts.push_back(BankAccount(account, name, bal));
                 cout << "Account Created Successfully!\n";
                 break;
             }
-            case 2:
-                B.transaction();
+            case 2: {
+                if (accounts.empty()) {
+                    cout << "No accounts exist. Please create one first.\n";
+                    break;
+                }
+                int idx;
+                cout << "Enter Account Index (0 - " << accounts.size() - 1 << "): ";
+                cin >> idx;
+                if (idx >= 0 && idx < accounts.size()) {
+                    accounts[idx].transaction();
+                } else {
+                    cout << "Invalid Account Index!\n";
+                }
                 break;
-            case 3:
-                B.display();
+            }
+            case 3: {
+                if (accounts.empty()) {
+                    cout << "No accounts to display.\n";
+                    break;
+                }
+                int idx;
+                cout << "Enter Account Index (0 - " << accounts.size() - 1 << "): ";
+                cin >> idx;
+                if (idx >= 0 && idx < accounts.size()) {
+                    accounts[idx].display();
+                } else {
+                    cout << "Invalid Account Index!\n";
+                }
                 break;
+            }
             case 4:
-                BankAccount::show_account();
+                BankAccount::show_account_count();
                 break;
             case 5:
                 cout << "Exiting..." << endl;
