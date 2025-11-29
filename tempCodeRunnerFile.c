@@ -1,0 +1,1 @@
+printf("Iter\t a\t b\t c\t f(c)\t\t New Interval \n");
