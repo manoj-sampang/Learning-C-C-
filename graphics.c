@@ -29,24 +29,24 @@ int main() {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         int data[] = {5, 10, 7, 12, 4, 9};
-int n = 6;
+        int n = 6;
 
-int startX = 50;
-int graphBottom = 450;
-int spacing = 80;
-int scale = 10;
+        int startX = 50;
+        int graphBottom = 450;
+        int spacing = 80;
+        int scale = 10;
 
-SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // white
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // white
 
-for (int i = 0; i < n - 1; i++) {
-    int x1 = startX + i * spacing;
-    int y1 = graphBottom - data[i] * scale;
+        for (int i = 0; i < n - 1; i++) {
+            int x1 = startX + i * spacing;
+            int y1 = graphBottom - data[i] * scale;
 
-    int x2 = startX + (i + 1) * spacing;
-    int y2 = graphBottom - data[i+1] * scale;
+            int x2 = startX + (i + 1) * spacing;
+            int y2 = graphBottom - data[i+1] * scale;
 
-    SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
-}
+            SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+        }
 
         SDL_RenderPresent(renderer);
         SDL_Delay(16);
