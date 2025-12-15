@@ -3,11 +3,11 @@
 #include<math.h>
 
 float function(float x) {
-    return sin(x) + 3 * x - 2;
+    return exp(-x) - x;
 }
 
 float g(float x) {
-    return (2-sin(x))/3;      // original g(x)
+    return exp(-x);      // original g(x)
 }
 
 float display(float a) {
