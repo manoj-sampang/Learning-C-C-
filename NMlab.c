@@ -7,12 +7,12 @@ float function(float x) {
 float calculateBisection(float n1, float n2) {
     float c;
     int i = 1;
-    printf("Iter\t a\t b\t c\t f(c)\t\t New Interval \n");
+    printf("Iter\t\t a\t\t b\t\t c\t\t f(c)\t\t New Interval \n");
     do {
         c = (n1 + n2)/2;
         if (function(n1)*function(c) < 0.0) {
             n2 = c;
-            printf("%d\t %f\t %f\t %f\t %f\t\t [%.2f, %.2f]\n", i, n1, n2, c, function(c), n1, c);
+            printf("%d\t %f\t %f\t %f\t %f\t [%.2f, %.2f]\n", i, n1, n2, c, function(c), n1, c);
         }
         else {
             n1 = c;
