@@ -20,7 +20,7 @@ int isFull(CircularQueue *q) {
     }
     return 0;
 }
-int isEmpty(CircularQueue *q) {
+int isEmpty(CircularQueue *q) { 
     if(q->front == -1) {
         return 1;
     }
@@ -71,6 +71,29 @@ void display(CircularQueue *q) {
     printf("\n");               
 }     
 
+void search(CircularQueue *q, int value) {
+    if(isEmpty(q)) {
+        printf("Queue is empty!\n");
+        return;
+    }
+    int i = q->front;
+    int found = 0;
+    while(1) {
+        if(q->items[i] == value) {
+            printf("Item %d found in the queue.\n", value);
+            found = 1;
+            break;
+        }
+        if(i == q->rear) {
+            break;
+        }
+        i = (i + 1) % MAX;
+    }
+    if(!found) {
+        printf("Item %d not found in the queue.\n", value);
+    }
+}   
+
 int main() {
 
     CircularQueue q;
@@ -81,7 +104,8 @@ int main() {
         printf("1. Enqueue\n");
         printf("2. Dequeue\n");
         printf("3. Display\n");
-        printf("4. Exit\n");
+        printf("4. Search Item\n");
+        printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -100,7 +124,12 @@ int main() {
             case 3:
                 display(&q);
                 break;
-            case 4:
+            case 4: 
+                printf("Enter item to search: ");
+                scanf("%d", &value);
+                search(&q, value);
+                break;
+            case 5:
                 exit(0);
             default:
                 printf("Invalid choice! Please try again.\n");
