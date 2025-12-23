@@ -14,7 +14,7 @@
 
 void selectionSort(float *a, int n) {
     for (int i = 0; i < n - 1; ++i) {
-        for (int j = i + 1; j < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
             if(*(a + i) > *(a + j)) {
                 float temp = *(a + i);
                 *(a + i) = *(a + j);
@@ -44,6 +44,10 @@ int main() {
         printf("Memory allocation failed \n");
         return 1;
     }
+    if(n == 1 || n < 0) {
+        printf("Given no. of input cannot be sorted\n");
+        exit(1);
+    }
     for(int i = 0; i < n; ++i) {
         printf("Arr[%d] = ", i+1);
         scanf("%f", &arr[i]);
@@ -52,7 +56,7 @@ int main() {
     printf("Input completed\n");
     printf("--- Before Sorting ---\n");
     display(arr, n);
-    if(n > 0) {
+    if(n > 1) {
         selectionSort(arr, n);
     }
     printf("--- After Sorting ---\n");
