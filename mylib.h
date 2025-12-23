@@ -1,3 +1,8 @@
+#ifndef MYLIB_H
+#define MYLIB_H
+
 void bubbleSort(float *, int);
 void selectionSort(float *, int);
-void display(float *, int);
+void insertionSort(float *, int);
+
+#endif

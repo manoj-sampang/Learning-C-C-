@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "mylib.h"
 
+void display(float *a, int n) {
+    for (int i = 0; i < n; ++i) {
+        printf("%f\t ", *(a + i));
+    }
+    printf("\n");
+}
+
 int main() {
     float *arr;
     int n;
@@ -25,7 +32,7 @@ int main() {
     printf("--- Before Sorting ---\n");
     display(arr, n);
     if(n > 1) {
-        selectionSort(arr, n);
+        bubbleSort(arr, n);
     }
     printf("--- After Sorting ---\n");
     printf("=== Ascending order ===\n");
