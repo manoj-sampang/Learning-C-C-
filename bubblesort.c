@@ -2,16 +2,16 @@
 #include<stdlib.h>
 
 void bubbleSort(float *a, int n) {
-    //ascending order
-    for(int i = 0; i < n/2; ++i) {
-        if(*(a+i) > (*a+i+1)) {
-            float temp;
-            temp = *(a+i);
-            *(a+i) = *(a+i+1);
-            *(a+i+1) = temp;
+    for(int i = 0; i < n - 1; i++) {
+       for(int j = 0; j < n - i - 1; ++j)
+            if(*(a + j) > *(a + j + 1)) {
+                float temp = *(a + j);
+                *(a + j) = *(a + j + 1);
+                *(a + j + 1) = temp;
+            }
         }
-    }
 }
+
 
 void display(float *a, int n) {
     printf("Displaying the Arrays\n");
@@ -27,6 +27,10 @@ int main() {
     printf("Give the no. of array you want to insert = ");
     scanf("%d", &n);
     arr = (float*)malloc(n*sizeof(float));
+    if(arr == NULL) {
+        printf("Memory allocation failed \n");
+        return 1;
+    }
     for(int i = 0; i < n; ++i) {
         printf("Arr[%d] = ", i+1);
         scanf("%f", &arr[i]);
@@ -36,7 +40,7 @@ int main() {
     printf("--- Before Sorting ---\n");
     display(arr, n);
     printf("=== Ascending order ===\n");
-    if(n > 0 && !n) {
+    if(n > 0) {
         bubbleSort(arr, n);
     }
     printf("--- After Sorting ---\n");
