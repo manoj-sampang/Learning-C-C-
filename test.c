@@ -32,7 +32,7 @@ int main() {
     printf("--- Before Sorting ---\n");
     display(arr, n);
     if(n > 1) {
-        bubbleSort(arr, n);
+        insertionSort(arr, n);
     }
     printf("--- After Sorting ---\n");
     printf("=== Ascending order ===\n");
