@@ -31,6 +31,7 @@ int main() {
 int get_n(int n) {
     return n;
 }
+int nth = 1;
 void fibonacci(int a, int b, int n, int fixed) {
     int next;
     if(n < fixed - 1 && n != 0) {
@@ -53,8 +54,20 @@ void fibonacci(int a, int b, int n, int fixed) {
     }
 }
 
+int nth_fibonacci(int term) {
+    int a = 0;
+    int b = 1;
+    next = a+b;
+    for(int i = 0; i < term-2; ++i) {
+        next = a+b;
+        a = b;
+        b = next;
+    }
+    return next;
+}
+
 int main() {
-    int num;
+    int num, term;
     printf("Fibonacci using Recursion\n");
     printf("Enter no. of terms for the Fibonacci series(Integers): ");
     scanf("%d", &num);
@@ -62,6 +75,12 @@ int main() {
         fibonacci(0, 1, num, num);
     }
     printf("Completion of the fibonacci Series till '%d' Term(s)\n", num);
+    printf(" === Find nth fibonacci Term === \n");
+    printf("Enter the term you want to display: ");
+    scanf("%d", &term);
+    if(!term || term > 0) {
+        
+    }
     return 0;
 
 }
