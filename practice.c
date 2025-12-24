@@ -28,10 +28,6 @@ int main() {
 /*using recursion*/
 #include<stdio.h>
 
-int get_n(int n) {
-    return n;
-}
-int nth = 1;
 void fibonacci(int a, int b, int n, int fixed) {
     int next;
     if(n < fixed - 1 && n != 0) {
@@ -57,9 +53,9 @@ void fibonacci(int a, int b, int n, int fixed) {
 int nth_fibonacci(int term) {
     int a = 0;
     int b = 1;
-    next = a+b;
+    int next;
     for(int i = 0; i < term-2; ++i) {
-        next = a+b;
+        next = a + b;
         a = b;
         b = next;
     }
@@ -67,7 +63,7 @@ int nth_fibonacci(int term) {
 }
 
 int main() {
-    int num, term;
+    int num, term, ans;
     printf("Fibonacci using Recursion\n");
     printf("Enter no. of terms for the Fibonacci series(Integers): ");
     scanf("%d", &num);
@@ -79,8 +75,9 @@ int main() {
     printf("Enter the term you want to display: ");
     scanf("%d", &term);
     if(!term || term > 0) {
-        
+        ans = nth_fibonacci(term);
     }
+    printf("The term(%d) is '%d' \n", term, ans);
     return 0;
 
 }
